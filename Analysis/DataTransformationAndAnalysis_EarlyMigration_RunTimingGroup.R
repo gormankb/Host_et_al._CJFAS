@@ -183,7 +183,7 @@ models <- list(model1, model2, model3, model4, model5, model6, model7, model8, m
 # Generate AIC table
 myaicc1 <- aictab(models, modnames = mynames1)
 print(myaicc1) #can save this as a .csv if you would like, to refer back to later
-
+aic_df <- as.data.frame(myaicc1)
 
 #Now, we can model average these results, Model averaging based on AICc, conditional averaging (default is full=TRUE)
 library(MuMIn)
@@ -251,22 +251,22 @@ DataSetF$Year<- as.factor(DataSetF$Year)
 
 #model set for Fecundity AICc
 model1 <- lm(Fecun_num_by_wt1~1, data=DataSetF)
-model2 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc, data=DataSetF)
-model3 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + EnergyPDry_1, data=DataSetF)
+model2 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc_g_mm, data=DataSetF)
+model3 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + EnergyPDry_1_mJ_g, data=DataSetF)
 model4 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + RunTimingGroup, data=DataSetF)
 model5 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + Year, data=DataSetF)
-model6 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc + EnergyPDry_1, data=DataSetF)
-model7 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc + RunTimingGroup, data=DataSetF)
-model8 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc + Year, data=DataSetF)
-model9 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + EnergyPDry_1 + RunTimingGroup, data=DataSetF)
-model10 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + EnergyPDry_1*RunTimingGroup, data=DataSetF)
-model11 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + EnergyPDry_1 + Year, data=DataSetF)
+model6 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc_g_mm + EnergyPDry_1_mJ_g, data=DataSetF)
+model7 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc_g_mm + RunTimingGroup, data=DataSetF)
+model8 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc_g_mm + Year, data=DataSetF)
+model9 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + EnergyPDry_1_mJ_g + RunTimingGroup, data=DataSetF)
+model10 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + EnergyPDry_1_mJ_g*RunTimingGroup, data=DataSetF)
+model11 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + EnergyPDry_1_mJ_g + Year, data=DataSetF)
 model12 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + RunTimingGroup + Year, data=DataSetF)
-model13 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc + EnergyPDry_1 + RunTimingGroup, data=DataSetF)
-model14 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc + EnergyPDry_1 + Year, data=DataSetF)
-model15 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc + RunTimingGroup + Year, data=DataSetF)
-model16 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m +  EnergyPDry_1 + RunTimingGroup + Year, data=DataSetF)
-model17 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc + EnergyPDry_1 + RunTimingGroup + Year, data=DataSetF)
+model13 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc_g_mm + EnergyPDry_1_mJ_g + RunTimingGroup, data=DataSetF)
+model14 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc_g_mm + EnergyPDry_1_mJ_g + Year, data=DataSetF)
+model15 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc_g_mm + RunTimingGroup + Year, data=DataSetF)
+model16 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m +  EnergyPDry_1_mJ_g + RunTimingGroup + Year, data=DataSetF)
+model17 <- lm(Fecun_num_by_wt1~Collection_RiverMile_m + bodysize_pc_g_mm + EnergyPDry_1_mJ_g + RunTimingGroup + Year, data=DataSetF)
 
 #so there are now 17 models, rather than 10. This needs to be reflected in the AICc and model lists that are made to produce tables/results from AICc model selection and model averaging
 
