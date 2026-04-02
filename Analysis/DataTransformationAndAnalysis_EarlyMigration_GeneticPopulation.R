@@ -3,7 +3,7 @@
 ### Published with Canadian Journal of Fisheries and Aquatic Sciences
 # March 26, 2026
 
-#Important notes on the genetic population data: It only has data from 2020 and 2021. Raw data file is called "EarlyMigration_GeneticPopulation_RawData.csv"
+#Important notes on the genetic population data: It only has data from 2020 and 2021. 
 
 # ================= Body Size (PC1 Score) Data Transformation =============
 #Clear Environment, load important packages
@@ -13,7 +13,6 @@ library(lubridate)
 
 #download original data
 OriginalData<-read.csv("EarlyMigration_RunTimingGroup_BodyCondition.csv")
-  #if you wish to skip this step, you can use the transformed data "EarlyMigration_RunTimingGroup_BodySize.csv" and jump straight to the AICc analysis
 
 ### Removing NAs that will mess up PCA code
 any(is.na(OriginalData$Group_Assignment)) #this is the genetic population assignment variable
